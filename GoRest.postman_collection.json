@@ -1,0 +1,1096 @@
+{
+	"info": {
+		"_postman_id": "43266162-d4bb-4deb-82f8-6e7ea5455d8d",
+		"name": "GoRest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23156536"
+	},
+	"item": [
+		{
+			"name": "GET Users List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Single User detail byId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/users/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2524"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Create New User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3f4d3b6452c8aa5373540cf557ce0adef9d0d435122674f69063ffacd5e93ca3",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"new user\",\r\n        \"email\": \"{{$randomEmail}}\",\r\n        \"gender\": \"male\",\r\n        \"status\": \"active\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Retrives User posts by user_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/users/:id/posts",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						":id",
+						"posts"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5176"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Create New Post by user_id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3f4d3b6452c8aa5373540cf557ce0adef9d0d435122674f69063ffacd5e93ca3",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"halo halo.\",\r\n    \"body\": \"halooooo.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}//users/:id/posts",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"",
+						"users",
+						":id",
+						"posts"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5176"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Update User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3f4d3b6452c8aa5373540cf557ce0adef9d0d435122674f69063ffacd5e93ca3",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Grzegorz Test\",\r\n        \"email\": \"nowyMail@gibson.org\",\r\n        \"gender\": \"male\",\r\n        \"status\": \"inactive\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "4408"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Update User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"email\": \"test_shah9999@gibson.org\",\r\n        \"status\": \"active\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "4321"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "4321"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Posts List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Single Post by postId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2048"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Update Post by postId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"halo halo.\",\r\n    \"body\": \"update tekstuuuuuu.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1674"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Update Post only text by postId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"body\": \"jeszcze jeden update halooooo2222222222.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1674"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Delete Post by postId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1674"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Comments List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/comments",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Single Comment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/comments/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1669"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Retrives Post Comments by post_id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/posts/:id/comments",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						":id",
+						"comments"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1669"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Edit Comments Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Andrzej Zmiana nazwiska\",\r\n    \"email\": \"endrju@bailey.biz\",\r\n    \"body\": \"ALE FAJNE albo i nie.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/comments/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1669"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Edit Comments Post only text",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"body\": \"1231313131 ALE FAJNE albo i nie.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/comments/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1669"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Comments Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/comments/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"comments",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1669"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Create Post comments by post_id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3f4d3b6452c8aa5373540cf557ce0adef9d0d435122674f69063ffacd5e93ca3",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Andrzej Hej\",\r\n        \"email\": \"endrju@bailey.biz\",\r\n        \"body\": \"ALE FAJNE.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/posts/:id/comments",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"posts",
+						":id",
+						"comments"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1674"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ToDos List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/todos",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Single ToDos byId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/todos/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"todos",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1604"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Retrives User ToDos by user_id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/users/:id/todos",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						":id",
+						"todos"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "3801"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Update Single ToDos byId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Ugotowac obiad - cos dobrego.\",\r\n    \"due_on\": \"2022-09-26T00:00:00.000+05:30\",\r\n    \"status\": \"pending\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/todos/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"todos",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1604"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Change only status Single ToDos byId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"completed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/todos/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"todos",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1604"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Single ToDos byId",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/todos/:id",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"todos",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1604"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Create User ToDos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3d35103edc89f53c074f22c0167e16b1dbad5a8067fd1c382edcdd12dc808ff4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"title\": \"Ugotowac obiad.\",\r\n        \"due_on\": \"2022-09-26T00:00:00.000+05:30\",\r\n        \"status\": \"pending\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users/:id/todos",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						":id",
+						"todos"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "3801"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://gorest.co.in/public/v2"
+		}
+	]
+}
